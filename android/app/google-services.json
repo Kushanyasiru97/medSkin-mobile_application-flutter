@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "375649686953",
+    "project_id": "medskin-79f5f",
+    "storage_bucket": "medskin-79f5f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375649686953:android:5dbf8eb99222f0fbd6a0b8",
+        "android_client_info": {
+          "package_name": "com.example.medskin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375649686953-e63gci1dvv470lgcvjueg529udgljg41.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medskin",
+            "certificate_hash": "628a4484b560b475dc22d020b738734b3e1d9525"
+          }
+        },
+        {
+          "client_id": "375649686953-v1gseh4fbn4edvko9214cjnf9v8km68r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1rS9TVnuahJOCc4RYmo7hSyPlTsGXD58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375649686953-v1gseh4fbn4edvko9214cjnf9v8km68r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
