@@ -63,6 +63,9 @@ dependencies:
   firebase_storage: ^10.2.4
 
 
+  curved_navigation_bar: ^1.0.1
+
+
 
 
 

@@ -133,7 +133,7 @@ class _HomeState extends State<Home> {
                             height: 250.0,
                             onPressed: () {
                               Navigator.of(context).push(
-                                  MaterialPageRoute(builder: (context) => userHome()));
+                                  MaterialPageRoute(builder: (context) => userbottomNavBar()));
                             },
                             child: Image.file(image),
                           ),

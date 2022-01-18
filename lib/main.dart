@@ -30,7 +30,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'skin diseases',
 
-      home:/*MySplashScreen(),*/adminHomePage(),
+      home:
+      // MySplashScreen(),
+      userbottomNavBar(),
     //     home:Consumer<AuthNotifier>(
     //     builder: (context, notifier, child){
     //   return notifier.user ! null ? feed(): adminLogin();
