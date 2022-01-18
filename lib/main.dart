@@ -9,6 +9,7 @@ import 'package:medskin/pages/login_screen.dart';
 import 'package:medskin/screens/home.dart';
 import 'package:medskin/screens/mysplashscreen.dart';
 import 'package:medskin/user/user_HomePage.dart';
+import 'package:medskin/user/user_bottomnavBar.dart';
 import 'package:medskin/user_login/login_screen.dart';
 import 'package:provider/provider.dart';
 import 'admin/admin_screens/admin_signup_screen.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
       home:
       // MySplashScreen(),
       userbottomNavBar(),
+      // userHomePage(),
     //     home:Consumer<AuthNotifier>(
     //     builder: (context, notifier, child){
     //   return notifier.user ! null ? feed(): adminLogin();
