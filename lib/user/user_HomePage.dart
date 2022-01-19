@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class userHomePage extends StatelessWidget {
   // const userHomePage({Key? key}) : super(key: key);
@@ -74,7 +73,6 @@ class userHomePage extends StatelessWidget {
           children: [
             Container(
               height: 150.0,
-              // color: Colors.grey,
               width: double.infinity,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -117,12 +115,33 @@ class userHomePage extends StatelessWidget {
                             image: "images/wallpaper.jpg",
                             name: "Pimples"
                         ),
-                        // _buildhistorydiplay(
-                        //     image: "images/drawer.png",
-                        //     name: "Tumar"
-                        // ),
                       ],
                     ),
+                    Container(
+                      height: 70.0,
+                      child:Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Categories",
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            "See All",
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      )
+                    ),
+                    Container(
+                      
+                    )
                   ],
                 )
               ],
