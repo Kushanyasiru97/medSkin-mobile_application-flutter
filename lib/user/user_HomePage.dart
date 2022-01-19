@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class userHomePage extends StatelessWidget {
-  // const userHomePage({Key? key}) : super(key: key);
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
 
   Widget _buildhistorydiplay({required String image, required String name}){
@@ -16,7 +15,6 @@ class userHomePage extends StatelessWidget {
             Container(
               height: 150.0,
               width: 150.0,
-              // color: Colors.grey,
               decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(image),
@@ -48,7 +46,6 @@ class userHomePage extends StatelessWidget {
         ),
         centerTitle: true,
         elevation: 0.0,
-        // backgroundColor: Colors.transparent,
         leading: IconButton(icon: Icon(Icons.menu),
           onPressed: () {
             _key.currentState!.openDrawer();

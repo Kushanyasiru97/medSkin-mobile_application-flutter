@@ -80,7 +80,6 @@ class _userHomeState extends State<userbottomNavBar> {
         onTap: onTappedBar,
         currentIndex: _currentIndex,
         type: BottomNavigationBarType.fixed,
-        // backgroundColor: Colors.grey,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home,size: 20),
