@@ -19,7 +19,7 @@ class adminHomePage extends StatelessWidget {
         // backgroundColor: Colors.transparent,
         leading: IconButton(icon: Icon(Icons.menu),
           onPressed: () {
-          _key.currentState!.openDrawer();
+            _key.currentState!.openDrawer();
           },
         ),
         actions: [
@@ -50,7 +50,7 @@ class adminHomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Features",
+                        "History",
                         style: TextStyle(
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
@@ -58,7 +58,7 @@ class adminHomePage extends StatelessWidget {
                       ),
 
                       Text(
-                          "See All",
+                        "See All",
                         style: TextStyle(
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
@@ -69,6 +69,51 @@ class adminHomePage extends StatelessWidget {
                 ],
               ),
             ),
+            Row(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Card(
+                      child: Container(
+                        height: 200.0,
+                        width: 160.0,
+                        // color: Colors.blue,
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 120.0,
+                              width: 160.0,
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage("images/wallpaper.jpg"),
+                                  )
+                              ),
+                            ),
+                            Text(
+                              "Diseases Name",
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xff9b96d6),
+                              ),
+                            ),
+                            Text(
+                              "Description",
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xff9b96d6),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            )
           ],
         ),
       ),
