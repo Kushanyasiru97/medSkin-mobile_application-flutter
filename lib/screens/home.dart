@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:medskin/screens/mysplashscreen.dart';
 import 'package:medskin/user/user_HomePage.dart';
+import 'package:medskin/user/user_bottomnavBar.dart';
 import 'package:splashscreen/splashscreen.dart';
 import 'package:tflite/tflite.dart';
 
