@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:medskin/allwidgets/progressDialog.dart';
+import 'package:medskin/doctors/screens/login_screen.dart';
 import 'package:medskin/home/home_screen.dart';
 import 'package:medskin/user/model/user_model.dart';
 import 'package:medskin/user/screens/login_screen.dart';
@@ -11,23 +12,23 @@ import 'package:medskin/user/screens/login_screen.dart';
 import 'home_screen.dart';
 
 
-class userRegistrationScreen extends StatefulWidget {
-  const userRegistrationScreen({Key? key}) : super(key: key);
+class doctorRegistrationScreen extends StatefulWidget {
+  const doctorRegistrationScreen({Key? key}) : super(key: key);
 
   @override
-  _userRegistrationScreenState createState() => _userRegistrationScreenState();
+  _doctorRegistrationScreenState createState() => _doctorRegistrationScreenState();
 }
 
-class _userRegistrationScreenState extends State<userRegistrationScreen> {
+class _doctorRegistrationScreenState extends State<doctorRegistrationScreen> {
   final _auth = FirebaseAuth.instance;
   
-  // string for displaying the error Message
+
   String? errorMessage;
 
 
-  // our form key
+
   final _formKey = GlobalKey<FormState>();
-  // editing Controller
+
   final firstNameEditingController = new TextEditingController();
   final secondNameEditingController = new TextEditingController();
   final emailEditingController = new TextEditingController();
@@ -50,13 +51,11 @@ class _userRegistrationScreenState extends State<userRegistrationScreen> {
         idToken: googleAuth.idToken,
       );
 
-      final User? user = (await _auth.signInWithCredential(credential)).user;
-      // print("signed in " + user.displayName);
+      final User? doctors = (await _auth.signInWithCredential(credential)).user;
 
-      return user;
+      return doctors;
     } catch (e) {
 
-      // print(e.message);
     }
   }
 
@@ -115,7 +114,6 @@ class _userRegistrationScreenState extends State<userRegistrationScreen> {
           ),
         ));
 
-    //email field
     final emailField = TextFormField(
         autofocus: false,
         controller: emailEditingController,
@@ -124,7 +122,6 @@ class _userRegistrationScreenState extends State<userRegistrationScreen> {
           if (value!.isEmpty) {
             return ("Please Enter Your Email");
           }
-          // reg expression for email validation
           if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
               .hasMatch(value)) {
             return ("Please Enter a valid email");
@@ -144,7 +141,6 @@ class _userRegistrationScreenState extends State<userRegistrationScreen> {
           ),
         ));
 
-    //password field
     final passwordField = TextFormField(
         autofocus: false,
         controller: passwordEditingController,
@@ -171,7 +167,6 @@ class _userRegistrationScreenState extends State<userRegistrationScreen> {
           ),
         ));
 
-    //confirm password field
     final confirmPasswordField = TextFormField(
         autofocus: false,
         controller: confirmPasswordEditingController,
@@ -283,7 +278,7 @@ class _userRegistrationScreenState extends State<userRegistrationScreen> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          userLoginScreen()));
+                                          doctorsLoginScreen()));
                             },
                             child: Text(
                               "Login",
@@ -359,19 +354,19 @@ class _userRegistrationScreenState extends State<userRegistrationScreen> {
     // sedning these values
 
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-    User? user = _auth.currentUser;
+    User? doctors = _auth.currentUser;
 
     UserModel userModel = UserModel();
 
     // writing all the values
-    userModel.email = user!.email;
-    userModel.uid = user.uid;
+    userModel.email = doctors!.email;
+    userModel.uid = doctors.uid;
     userModel.firstName = firstNameEditingController.text;
     userModel.secondName = secondNameEditingController.text;
 
     await firebaseFirestore
         .collection("users")
-        .doc(user.uid)
+        .doc(doctors.uid)
         .set(userModel.toMap());
     Fluttertoast.showToast(msg: "Account created successfully :) ");
 

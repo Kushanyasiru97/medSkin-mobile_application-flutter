@@ -56,7 +56,7 @@ dependencies:
 
 #  Admin
   google_fonts: ^2.1.0
-  flutter_svg: ^0.22.0
+#  flutter_svg: ^0.22.0
   fl_chart: ^0.36.1
   provider: ^4.3.2+2
   data_table_2: ^2.0.3
@@ -66,6 +66,21 @@ dependencies:
   curved_navigation_bar: ^1.0.1
 
   fluttertoast: ^8.0.8
+  google_maps_flutter: ^2.1.1
+  camera: ^0.5.8+17
+  path:
+#  esys_flutter_share:
+
+#  flutter_svg: ^0.19.3
+#  emoji_picker: ^0.1.0
+#  shared_preferences: ^0.5.12+4
+#  camera: ^0.7.0+2
+  path_provider:
+#  path:
+#  video_player: ^1.0.1
+#  socket_io_client: ^0.9.12
+  flutter_svg: ^0.19.0
+
 
 
 

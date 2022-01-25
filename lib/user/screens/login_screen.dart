@@ -3,8 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:medskin/allwidgets/progressDialog.dart';
+import 'package:medskin/home/home_screen.dart';
 import 'package:medskin/user/screens/registration_screen.dart';
-import 'package:medskin/user/user_HomePage.dart';
 import '../user_bottomnavBar.dart';
 import 'home_screen.dart';
 
@@ -16,17 +17,17 @@ class userLoginScreen extends StatefulWidget {
 }
 
 class _userLoginScreenState extends State<userLoginScreen> {
-  // form key
+
   final _formKey = GlobalKey<FormState>();
 
-  // editing controller
+
   final TextEditingController emailController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
 
-  // firebase
+
   final _auth = FirebaseAuth.instance;
   
-  // string for displaying the error Message
+
   String? errorMessage;
 
 
@@ -58,7 +59,6 @@ class _userLoginScreenState extends State<userLoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    //email field
     final emailField = TextFormField(
         autofocus: false,
         controller: emailController,
@@ -165,7 +165,7 @@ class _userLoginScreenState extends State<userLoginScreen> {
                       padding: EdgeInsets.zero,
                       onPressed: () {
                         _googleSignUp().then((value)=> Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context)=> userHomePage(),),),);
+                          builder: (context)=> userHomeScreen(),),),);
                       },
                       child: Image(
                         image: AssetImage('images/signin.png'),
@@ -184,7 +184,7 @@ class _userLoginScreenState extends State<userLoginScreen> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          RegistrationScreen()));
+                                          userRegistrationScreen()));
                             },
                             child: Text(
                               "SignUp",
@@ -207,6 +207,16 @@ class _userLoginScreenState extends State<userLoginScreen> {
 
   // login function
   void signIn(String email, String password) async {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context){
+          return progressDialog(
+              message: "Authenticating, Please Wait...!"
+          );
+        }
+    );
+
     if (_formKey.currentState!.validate()) {
       try {
         await _auth
@@ -217,6 +227,7 @@ class _userLoginScreenState extends State<userLoginScreen> {
                       MaterialPageRoute(builder: (context) => userbottomNavBar())),
                 });
       } on FirebaseAuthException catch (error) {
+        Navigator.pop(context);
         switch (error.code) {
           case "invalid-email":
             errorMessage = "Your email address appears to be malformed.";
