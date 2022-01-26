@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'skin diseases',
 
       home:
-      userbottomNavBar(),
+      MainScreen(),
       //  userLoginScreen(),
       debugShowCheckedModeBanner: true,
     );

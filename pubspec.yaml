@@ -80,6 +80,7 @@ dependencies:
 #  video_player: ^1.0.1
 #  socket_io_client: ^0.9.12
   flutter_svg: ^0.19.0
+  firebase_database: ^9.0.5
 
 
 
