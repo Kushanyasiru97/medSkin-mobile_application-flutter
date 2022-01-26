@@ -2,9 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:medskin/admin/admin_screens/admin_login_screens.dart';
 import 'package:medskin/admin/admin_screens/admin_signup_screen.dart';
+import 'package:medskin/camera_screen/pages/camera_screen.dart';
+import 'package:medskin/home/home_screen.dart';
 import 'package:medskin/models/skincaretip_model.dart';
 import 'package:medskin/screens/home.dart';
-import 'package:medskin/user/user_HomePage.dart';
+import 'package:medskin/user/screens/login_screen.dart';
+import 'package:medskin/user/screens/registration_screen.dart';
+
+import '../main.dart';
 
 
 class userbottomNavBar extends StatefulWidget {
@@ -64,11 +69,10 @@ class _userHomeState extends State<userbottomNavBar> {
 
   int _currentIndex = 0;
   final List<Widget> _children = [
-    userHomePage(),
-    adminLogin(),
-    Home(),
-    adminSignUp(),
-    adminSignUp(),
+    userHomeScreen(),
+    userLoginScreen(),
+    userLoginScreen(),
+    userLoginScreen(),
   ];
 
   @override
@@ -92,7 +96,11 @@ class _userHomeState extends State<userbottomNavBar> {
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.camera,size: 40),
+            icon: IconButton(
+                icon: Icon(Icons.camera,size: 40), onPressed: () {
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => CameraScreen()));
+            },),
             title: Text(""),
             backgroundColor: Colors.blue,
           ),

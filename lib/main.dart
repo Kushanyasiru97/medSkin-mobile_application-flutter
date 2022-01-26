@@ -2,10 +2,13 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:medskin/doctors/screens/login_screen.dart';
+import 'package:medskin/screens/home.dart';
+import 'package:medskin/user/screens/login_screen.dart';
 import 'package:medskin/user/user_bottomnavBar.dart';
-
-
-
+import 'camera_screen/pages/camera_screen.dart';
+import 'google_map/mainscreen.dart';
+import 'home/home_screen.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +24,7 @@ class MyApp extends StatelessWidget {
 
       home:
       userbottomNavBar(),
+      //  userLoginScreen(),
       debugShowCheckedModeBanner: true,
     );
   }

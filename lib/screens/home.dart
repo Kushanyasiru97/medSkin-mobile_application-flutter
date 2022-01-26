@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:medskin/screens/mysplashscreen.dart';
-import 'package:medskin/user/user_HomePage.dart';
 import 'package:medskin/user/user_bottomnavBar.dart';
 import 'package:splashscreen/splashscreen.dart';
 import 'package:tflite/tflite.dart';
@@ -88,9 +87,10 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.transparent,
       ),
 
-     // backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: Colors.lightBlueAccent,
 
-      body: Container(
+      body:
+      Container(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -115,47 +115,47 @@ class _HomeState extends State<Home> {
             Center(
               child: _loading
                   ? Container(
-                      width: MediaQuery.of(context).size.width - 100,
-                      child: Column(
-                        children: [
-                          Image.asset('images/wallpaper.jpg'),
+                width: MediaQuery.of(context).size.width - 100,
+                child: Column(
+                  children: [
+                    Image.asset('images/wallpaper.jpg'),
 
-                          SizedBox(
-                            height: 50.0,
-                          )
-                        ],
-                      ),
+                    SizedBox(
+                      height: 50.0,
                     )
+                  ],
+                ),
+              )
                   : Container(
-                      child: Column(
-                        children: [
-                          FlatButton(
+                child: Column(
+                  children: [
+                    FlatButton(
 
-                            height: 250.0,
-                            onPressed: () {
-                              Navigator.of(context).push(
-                                  MaterialPageRoute(builder: (context) => userbottomNavBar()));
-                            },
-                            child: Image.file(image),
-                          ),
-                          SizedBox(
-                            height: 20.0,
-                          ),
-                          output != null
-                              ? Text(
-                                  '${output[0]['label']}',
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 15.0),
-                                )
-                              : Container(),
-                          SizedBox(
-                            height: 10.0,
-                          )
-                        ],
-                      ),
+                      height: 250.0,
+                      onPressed: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => userbottomNavBar()));
+                      },
+                      child: Image.file(image),
                     ),
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    output != null
+                        ? Text(
+                      '${output[0]['label']}',
+                      style: TextStyle(
+                          color: Colors.black, fontSize: 15.0),
+                    )
+                        : Container(),
+                    SizedBox(
+                      height: 10.0,
+                    )
+                  ],
+                ),
+              ),
             ),
-            
+
             Container(
               width: MediaQuery.of(context).size.width,
               child: Column(
