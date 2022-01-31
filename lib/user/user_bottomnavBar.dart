@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:medskin/admin/admin_screens/admin_login_screens.dart';
-import 'package:medskin/admin/admin_screens/admin_signup_screen.dart';
 import 'package:medskin/camera_screen/pages/camera_screen.dart';
 import 'package:medskin/home/home_screen.dart';
 import 'package:medskin/models/skincaretip_model.dart';
