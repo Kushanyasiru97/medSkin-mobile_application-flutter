@@ -5,6 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:medskin/allwidgets/progressDialog.dart';
 import 'package:medskin/home/home_screen.dart';
+import 'package:medskin/uh/bottom_page.dart';
 import 'package:medskin/user/screens/registration_screen.dart';
 import '../user_bottomnavBar.dart';
 import 'home_screen.dart';
@@ -150,7 +151,7 @@ class _userLoginScreenState extends State<userLoginScreen> {
                     SizedBox(
                         height: 200,
                         child: Image.asset(
-                          "images/logo.png",
+                          "images/medSkin.png",
                           fit: BoxFit.contain,
                         )),
                     SizedBox(height: 45),
@@ -164,8 +165,8 @@ class _userLoginScreenState extends State<userLoginScreen> {
                     MaterialButton(
                       padding: EdgeInsets.zero,
                       onPressed: () {
-                        _googleSignUp().then((value)=> Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context)=> userHomeScreen(),),),);
+                        // _googleSignUp().then((value)=> Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        //   builder: (context)=> userHomeScreen(),),),);
                       },
                       child: Image(
                         image: AssetImage('images/signin.png'),
@@ -224,7 +225,7 @@ class _userLoginScreenState extends State<userLoginScreen> {
             .then((uid) => {
                   Fluttertoast.showToast(msg: "Login Successful"),
                   Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => userbottomNavBar())),
+                      MaterialPageRoute(builder: (context) => BottomPage())),
                 });
       } on FirebaseAuthException catch (error) {
         Navigator.pop(context);

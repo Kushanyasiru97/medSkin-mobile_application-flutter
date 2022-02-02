@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medskin/user/user_bottomnavBar.dart';
 import 'package:splashscreen/splashscreen.dart';
 
 import 'home.dart';
@@ -15,7 +16,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
   Widget build(BuildContext context) {
     return SplashScreen(
       seconds: 3,
-      navigateAfterSeconds: Home(),
+      navigateAfterSeconds: userbottomNavBar(),
       title: Text(
         'Cat and Dog Classifier',
         style: TextStyle(

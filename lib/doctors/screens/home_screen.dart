@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: <Widget>[
               SizedBox(
                 height: 150,
-                child: Image.asset("assets/logo.png", fit: BoxFit.contain),
+                child: Image.asset("images/medSkin.png", fit: BoxFit.contain),
               ),
               Text(
                 "Welcome Back",

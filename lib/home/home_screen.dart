@@ -163,23 +163,23 @@ class userHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffcbcbcb),
-      drawer: Drawer(),
+      // drawer: Drawer(),
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        title: Text(
-            "User Home Page",
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontSize: 20.0,
-          ),
-        ),
+        // iconTheme: IconThemeData(color: Colors.black),
+        // title: Text(
+        //   "User Home Page",
+        //   style: TextStyle(
+        //     color: Colors.black,
+        //     fontWeight: FontWeight.bold,
+        //     fontSize: 20.0,
+        //   ),
+        // ),
         actions: [
-          CircleAvatar(
-            radius: 20.0,
-            backgroundColor: Color(0xffd4d181),
-            child: Icon(Icons.person,size: 20.0,color: Colors.black,),
-          ),
+          // CircleAvatar(
+          //   radius: 20.0,
+          //   backgroundColor: Color(0xffd4d181),
+          //   child: Icon(Icons.person,size: 20.0,color: Colors.black,),
+          // ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5.0),
             child: CircleAvatar(
@@ -189,7 +189,7 @@ class userHomeScreen extends StatelessWidget {
             ),
           )
         ],
-        backgroundColor: Colors.cyan,
+        backgroundColor: Colors.white,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
@@ -206,28 +206,28 @@ class userHomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-                  SizedBox(height: 10.0,),
-                  Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 5.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                          "skin History",
-                        style: TextStyle(
-                          fontSize: 20.0,
-                        ),
+              SizedBox(height: 10.0,),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "skin History",
+                      style: TextStyle(
+                        fontSize: 20.0,
                       ),
-                      Text(
-                        "View All",
-                        style: TextStyle(
-                            fontSize: 20.0,
-                          color: Colors.grey,
-                        ),
+                    ),
+                    Text(
+                      "View All",
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.grey,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
+              ),
 
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -255,11 +255,11 @@ class userHomeScreen extends StatelessWidget {
 
                             splashColor: Colors.grey,
                             onTap: (){},
-                           child: Ink.image(
-                               image: AssetImage("images/home.png",),
-                             height: 60.0,
-                             width: 60.0,
-                           ),
+                            child: Ink.image(
+                              image: AssetImage("images/home.png",),
+                              height: 60.0,
+                              width: 60.0,
+                            ),
                           ),
                         ),
                         SizedBox(width: 80,),
