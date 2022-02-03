@@ -9,6 +9,7 @@ import 'package:path/path.dart';
 
 class PreviewScreen extends StatefulWidget{
   final String imgPath;
+  File ? image;
 
   PreviewScreen({required this.imgPath});
 
@@ -39,7 +40,7 @@ class _PreviewScreenState extends State<PreviewScreen>{
                 color: Colors.black,
                 child: Center(
                   child: IconButton(
-                    icon: Icon(Icons.bike_scooter,color: Colors.white,),
+                    icon: Icon(Icons.bike_scooter_outlined,color: Colors.white,),
                     onPressed: (){
                       getBytesFromFile().then((bytes){
                         // Share.file('Share via', basename(widget.imgPath), bytes.buffer.asUint8List(),'image/path');

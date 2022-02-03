@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:medskin/allwidgets/progressDialog.dart';
+import 'package:medskin/doctors/screens/registration_screen.dart';
 import 'package:medskin/home/home_screen.dart';
-import 'package:medskin/user/screens/registration_screen.dart';
 import 'package:medskin/user/user_bottomnavBar.dart';
 import 'home_screen.dart';
 
@@ -26,36 +26,36 @@ class _doctorsLoginScreenState extends State<doctorsLoginScreen> {
 
   // firebase
   final _auth = FirebaseAuth.instance;
-  
+
   // string for displaying the error Message
   String? errorMessage;
 
 
-  _googleSignUp() async {
-    try {
-      final GoogleSignIn _googleSignIn = GoogleSignIn(
-        scopes: ['email'],
-      );
-      final FirebaseAuth _auth = FirebaseAuth.instance;
-
-      final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
-      final GoogleSignInAuthentication googleAuth =
-      await googleUser.authentication;
-
-      final AuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-
-      final User? doctors = (await _auth.signInWithCredential(credential)).user;
-      // print("signed in " + user.displayName);
-
-      return doctors;
-    } catch (e) {
-
-      // print(e.message);
-    }
-  }
+  // _googleSignUp() async {
+  //   try {
+  //     final GoogleSignIn _googleSignIn = GoogleSignIn(
+  //       scopes: ['email'],
+  //     );
+  //     final FirebaseAuth _auth = FirebaseAuth.instance;
+  //
+  //     final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+  //     final GoogleSignInAuthentication googleAuth =
+  //     await googleUser.authentication;
+  //
+  //     final AuthCredential credential = GoogleAuthProvider.credential(
+  //       accessToken: googleAuth.accessToken,
+  //       idToken: googleAuth.idToken,
+  //     );
+  //
+  //     final User? doctors = (await _auth.signInWithCredential(credential)).user;
+  //     // print("signed in " + user.displayName);
+  //
+  //     return doctors;
+  //   } catch (e) {
+  //
+  //     // print(e.message);
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -162,17 +162,17 @@ class _doctorsLoginScreenState extends State<doctorsLoginScreen> {
                     loginButton,
                     SizedBox(height: 15),
 
-                    MaterialButton(
-                      padding: EdgeInsets.zero,
-                      onPressed: () {
-                        _googleSignUp().then((value)=> Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context)=> userHomeScreen(),),),);
-                      },
-                      child: Image(
-                        image: AssetImage('images/signin.png'),
-                        width: 200.0,
-                      ),
-                    ),
+                    // MaterialButton(
+                    //   padding: EdgeInsets.zero,
+                    //   onPressed: () {
+                    //     _googleSignUp().then((value)=> Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    //       builder: (context)=> userHomeScreen(),),),);
+                    //   },
+                    //   child: Image(
+                    //     image: AssetImage('images/signin.png'),
+                    //     width: 200.0,
+                    //   ),
+                    // ),
 
                     SizedBox(height: 15),
                     Row(
@@ -185,7 +185,7 @@ class _doctorsLoginScreenState extends State<doctorsLoginScreen> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          userRegistrationScreen()));
+                                          doctorRegistrationScreen()));
                             },
                             child: Text(
                               "SignUp",
@@ -225,7 +225,7 @@ class _doctorsLoginScreenState extends State<doctorsLoginScreen> {
             .then((uid) => {
                   Fluttertoast.showToast(msg: "Login Successful"),
                   Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => userbottomNavBar())),
+                      MaterialPageRoute(builder: (context) => HomeScreen())),
                 });
       } on FirebaseAuthException catch (error) {
         Navigator.pop(context);

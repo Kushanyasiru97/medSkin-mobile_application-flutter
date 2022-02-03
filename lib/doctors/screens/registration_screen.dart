@@ -6,10 +6,10 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:medskin/allwidgets/progressDialog.dart';
 import 'package:medskin/doctors/screens/login_screen.dart';
 import 'package:medskin/home/home_screen.dart';
-import 'package:medskin/user/model/user_model.dart';
 import 'package:medskin/user/screens/login_screen.dart';
 
 import 'home_screen.dart';
+import 'model/doctor_model.dart';
 
 
 class doctorRegistrationScreen extends StatefulWidget {
@@ -21,7 +21,7 @@ class doctorRegistrationScreen extends StatefulWidget {
 
 class _doctorRegistrationScreenState extends State<doctorRegistrationScreen> {
   final _auth = FirebaseAuth.instance;
-  
+
 
   String? errorMessage;
 
@@ -35,29 +35,29 @@ class _doctorRegistrationScreenState extends State<doctorRegistrationScreen> {
   final passwordEditingController = new TextEditingController();
   final confirmPasswordEditingController = new TextEditingController();
 
-  _googleSignUp() async {
-    try {
-      final GoogleSignIn _googleSignIn = GoogleSignIn(
-        scopes: ['email'],
-      );
-      final FirebaseAuth _auth = FirebaseAuth.instance;
-
-      final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
-      final GoogleSignInAuthentication googleAuth =
-      await googleUser.authentication;
-
-      final AuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-
-      final User? doctors = (await _auth.signInWithCredential(credential)).user;
-
-      return doctors;
-    } catch (e) {
-
-    }
-  }
+  // _googleSignUp() async {
+  //   try {
+  //     final GoogleSignIn _googleSignIn = GoogleSignIn(
+  //       scopes: ['email'],
+  //     );
+  //     final FirebaseAuth _auth = FirebaseAuth.instance;
+  //
+  //     final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+  //     final GoogleSignInAuthentication googleAuth =
+  //     await googleUser.authentication;
+  //
+  //     final AuthCredential credential = GoogleAuthProvider.credential(
+  //       accessToken: googleAuth.accessToken,
+  //       idToken: googleAuth.idToken,
+  //     );
+  //
+  //     final User? doctors = (await _auth.signInWithCredential(credential)).user;
+  //
+  //     return doctors;
+  //   } catch (e) {
+  //
+  //   }
+  // }
 
 
   @override
@@ -255,17 +255,17 @@ class _doctorRegistrationScreenState extends State<doctorRegistrationScreen> {
                     signUpButton,
                     SizedBox(height: 15),
 
-                    MaterialButton(
-                      padding: EdgeInsets.zero,
-                      onPressed: () {
-                        _googleSignUp().then((value)=> Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context)=> userHomeScreen(),),),);
-                      },
-                      child: Image(
-                        image: AssetImage('images/signin.png'),
-                        width: 200.0,
-                      ),
-                    ),
+                    // MaterialButton(
+                    //   padding: EdgeInsets.zero,
+                    //   onPressed: () {
+                    //     _googleSignUp().then((value)=> Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    //       builder: (context)=> userHomeScreen(),),),);
+                    //   },
+                    //   child: Image(
+                    //     image: AssetImage('images/signin.png'),
+                    //     width: 200.0,
+                    //   ),
+                    // ),
 
                     SizedBox(height: 15),
                     Row(
@@ -356,23 +356,23 @@ class _doctorRegistrationScreenState extends State<doctorRegistrationScreen> {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     User? doctors = _auth.currentUser;
 
-    UserModel userModel = UserModel();
+    DoctorModel doctorModel = DoctorModel();
 
     // writing all the values
-    userModel.email = doctors!.email;
-    userModel.uid = doctors.uid;
-    userModel.firstName = firstNameEditingController.text;
-    userModel.secondName = secondNameEditingController.text;
+    doctorModel.email = doctors!.email;
+    doctorModel.uid = doctors.uid;
+    doctorModel.firstName = firstNameEditingController.text;
+    doctorModel.secondName = secondNameEditingController.text;
 
     await firebaseFirestore
         .collection("users")
         .doc(doctors.uid)
-        .set(userModel.toMap());
+        .set(doctorModel.toMap());
     Fluttertoast.showToast(msg: "Account created successfully :) ");
 
     Navigator.pushAndRemoveUntil(
         (context),
-        MaterialPageRoute(builder: (context) => userLoginScreen()),
+        MaterialPageRoute(builder: (context) => doctorsLoginScreen()),
         (route) => false);
   }
 }

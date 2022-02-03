@@ -243,7 +243,7 @@ class _userRegistrationScreenState extends State<userRegistrationScreen> {
                     SizedBox(
                         height: 180,
                         child: Image.asset(
-                          "images/logo.png",
+                          "images/medSkin.png",
                           fit: BoxFit.contain,
                         )),
                     SizedBox(height: 45),
@@ -263,8 +263,8 @@ class _userRegistrationScreenState extends State<userRegistrationScreen> {
                     MaterialButton(
                       padding: EdgeInsets.zero,
                       onPressed: () {
-                        _googleSignUp().then((value)=> Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context)=> userHomeScreen(),),),);
+                        // _googleSignUp().then((value)=> Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        //   builder: (context)=> userHomeScreen(),),),);
                       },
                       child: Image(
                         image: AssetImage('images/signin.png'),
