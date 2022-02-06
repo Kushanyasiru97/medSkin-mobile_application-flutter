@@ -1,17 +1,17 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
 
 
-class requestAssistant{
+class RequestAssistant{
   static Future<dynamic> getRequest(String url) async{
-    Uri myUri = Uri.parse(url);
 
-    http.Response response = await http.get(myUri);
+    Uri myUrl = Uri.parse(url);
+
+    http.Response response = await http.get(myUrl);
     try{
       if(response.statusCode == 200){
-        String jdata =  response.body;
-        var decodeData = jsonDecode(jdata);
+        String jSondata =  response.body;
+        var decodeData = jsonDecode(jSondata);
         return decodeData;
       }
       else{

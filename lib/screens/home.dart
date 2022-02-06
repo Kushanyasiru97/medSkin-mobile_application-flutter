@@ -11,7 +11,7 @@ import 'package:tflite/tflite.dart';
 
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({Key key}) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();
@@ -19,8 +19,8 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   bool _loading = true;
-  late List output;
-  late File image;
+  List output;
+  File image;
 
   final picker = ImagePicker();
 
@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
       imageStd: 127.5,
     );
     setState(() {
-      output = res!;
+      output = res;
       _loading = false;
     });
   }

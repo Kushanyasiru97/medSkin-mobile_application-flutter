@@ -12,7 +12,7 @@ import 'package:medskin/user/screens/registration_screen.dart';
 
 
 class userbottomNavBar extends StatefulWidget {
-  const userbottomNavBar({Key? key}) : super(key: key);
+  const userbottomNavBar({Key key}) : super(key: key);
 
   @override
   _userHomeState createState() => _userHomeState();
@@ -30,7 +30,7 @@ class _userHomeState extends State<userbottomNavBar> {
   }
 
 
-  Widget skincaretipsContainer({required String image,required String topic,required String description}){
+  Widget skincaretipsContainer({String image,String topic,String description}){
     return Column(
       children: [
         Container(
@@ -64,7 +64,7 @@ class _userHomeState extends State<userbottomNavBar> {
     );
   }
 
-  late final List<BottomNavigationBarItem> items ;
+  // final List<BottomNavigationBarItem> items ;
 
   int _currentIndex = 0;
   final List<Widget> _children = [

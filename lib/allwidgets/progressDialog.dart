@@ -5,7 +5,7 @@ class progressDialog extends StatelessWidget {
   // const progressDialog({Key? key}) : super(key: key);
 
   String message;
-  progressDialog({required this.message});
+  progressDialog({this.message});
 
   @override
   Widget build(BuildContext context) {
