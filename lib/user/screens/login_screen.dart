@@ -11,7 +11,7 @@ import '../user_bottomnavBar.dart';
 import 'home_screen.dart';
 
 class userLoginScreen extends StatefulWidget {
-  const userLoginScreen({Key? key}) : super(key: key);
+  const userLoginScreen({Key key}) : super(key: key);
 
   @override
   _userLoginScreenState createState() => _userLoginScreenState();
@@ -29,7 +29,7 @@ class _userLoginScreenState extends State<userLoginScreen> {
   final _auth = FirebaseAuth.instance;
   
 
-  String? errorMessage;
+  String errorMessage;
 
 
   _googleSignUp() async {
@@ -48,7 +48,7 @@ class _userLoginScreenState extends State<userLoginScreen> {
         idToken: googleAuth.idToken,
       );
 
-      final User? user = (await _auth.signInWithCredential(credential)).user;
+      final User user = (await _auth.signInWithCredential(credential)).user;
       // print("signed in " + user.displayName);
 
       return user;
@@ -65,7 +65,7 @@ class _userLoginScreenState extends State<userLoginScreen> {
         controller: emailController,
         keyboardType: TextInputType.emailAddress,
         validator: (value) {
-          if (value!.isEmpty) {
+          if (value.isEmpty) {
             return ("Please Enter Your Email");
           }
           // reg expression for email validation
@@ -76,7 +76,7 @@ class _userLoginScreenState extends State<userLoginScreen> {
           return null;
         },
         onSaved: (value) {
-          emailController.text = value!;
+          emailController.text = value;
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
@@ -95,7 +95,7 @@ class _userLoginScreenState extends State<userLoginScreen> {
         obscureText: true,
         validator: (value) {
           RegExp regex = new RegExp(r'^.{6,}$');
-          if (value!.isEmpty) {
+          if (value.isEmpty) {
             return ("Password is required for login");
           }
           if (!regex.hasMatch(value)) {
@@ -103,7 +103,7 @@ class _userLoginScreenState extends State<userLoginScreen> {
           }
         },
         onSaved: (value) {
-          passwordController.text = value!;
+          passwordController.text = value;
         },
         textInputAction: TextInputAction.done,
         decoration: InputDecoration(
@@ -218,7 +218,7 @@ class _userLoginScreenState extends State<userLoginScreen> {
         }
     );
 
-    if (_formKey.currentState!.validate()) {
+    if (_formKey.currentState.validate()) {
       try {
         await _auth
             .signInWithEmailAndPassword(email: email, password: password)
@@ -252,7 +252,7 @@ class _userLoginScreenState extends State<userLoginScreen> {
           default:
             errorMessage = "An undefined Error happened.";
         }
-        Fluttertoast.showToast(msg: errorMessage!);
+        Fluttertoast.showToast(msg: errorMessage);
         print(error.code);
       }
     }

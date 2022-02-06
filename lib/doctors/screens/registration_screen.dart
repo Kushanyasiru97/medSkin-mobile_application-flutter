@@ -13,7 +13,7 @@ import 'model/doctor_model.dart';
 
 
 class doctorRegistrationScreen extends StatefulWidget {
-  const doctorRegistrationScreen({Key? key}) : super(key: key);
+  const doctorRegistrationScreen({Key key}) : super(key: key);
 
   @override
   _doctorRegistrationScreenState createState() => _doctorRegistrationScreenState();
@@ -23,7 +23,7 @@ class _doctorRegistrationScreenState extends State<doctorRegistrationScreen> {
   final _auth = FirebaseAuth.instance;
 
 
-  String? errorMessage;
+  String errorMessage;
 
 
 
@@ -69,7 +69,7 @@ class _doctorRegistrationScreenState extends State<doctorRegistrationScreen> {
         keyboardType: TextInputType.name,
         validator: (value) {
           RegExp regex = new RegExp(r'^.{3,}$');
-          if (value!.isEmpty) {
+          if (value.isEmpty) {
             return ("First Name cannot be Empty");
           }
           if (!regex.hasMatch(value)) {
@@ -78,7 +78,7 @@ class _doctorRegistrationScreenState extends State<doctorRegistrationScreen> {
           return null;
         },
         onSaved: (value) {
-          firstNameEditingController.text = value!;
+          firstNameEditingController.text = value;
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
@@ -96,13 +96,13 @@ class _doctorRegistrationScreenState extends State<doctorRegistrationScreen> {
         controller: secondNameEditingController,
         keyboardType: TextInputType.name,
         validator: (value) {
-          if (value!.isEmpty) {
+          if (value.isEmpty) {
             return ("Second Name cannot be Empty");
           }
           return null;
         },
         onSaved: (value) {
-          secondNameEditingController.text = value!;
+          secondNameEditingController.text = value;
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
@@ -119,7 +119,7 @@ class _doctorRegistrationScreenState extends State<doctorRegistrationScreen> {
         controller: emailEditingController,
         keyboardType: TextInputType.emailAddress,
         validator: (value) {
-          if (value!.isEmpty) {
+          if (value.isEmpty) {
             return ("Please Enter Your Email");
           }
           if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
@@ -129,7 +129,7 @@ class _doctorRegistrationScreenState extends State<doctorRegistrationScreen> {
           return null;
         },
         onSaved: (value) {
-          firstNameEditingController.text = value!;
+          firstNameEditingController.text = value;
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
@@ -147,7 +147,7 @@ class _doctorRegistrationScreenState extends State<doctorRegistrationScreen> {
         obscureText: true,
         validator: (value) {
           RegExp regex = new RegExp(r'^.{6,}$');
-          if (value!.isEmpty) {
+          if (value.isEmpty) {
             return ("Password is required for login");
           }
           if (!regex.hasMatch(value)) {
@@ -155,7 +155,7 @@ class _doctorRegistrationScreenState extends State<doctorRegistrationScreen> {
           }
         },
         onSaved: (value) {
-          firstNameEditingController.text = value!;
+          firstNameEditingController.text = value;
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
@@ -179,7 +179,7 @@ class _doctorRegistrationScreenState extends State<doctorRegistrationScreen> {
           return null;
         },
         onSaved: (value) {
-          confirmPasswordEditingController.text = value!;
+          confirmPasswordEditingController.text = value;
         },
         textInputAction: TextInputAction.done,
         decoration: InputDecoration(
@@ -311,13 +311,13 @@ class _doctorRegistrationScreenState extends State<doctorRegistrationScreen> {
         }
     );
 
-    if (_formKey.currentState!.validate()) {
+    if (_formKey.currentState.validate()) {
       try {
         await _auth
             .createUserWithEmailAndPassword(email: email, password: password)
             .then((value) => {postDetailsToFirestore()})
             .catchError((e) {
-          Fluttertoast.showToast(msg: e!.message);
+          Fluttertoast.showToast(msg: e.message);
         });
       } on FirebaseAuthException catch (error) {
         Navigator.pop(context);
@@ -343,7 +343,7 @@ class _doctorRegistrationScreenState extends State<doctorRegistrationScreen> {
           default:
             errorMessage = "An undefined Error happened.";
         }
-        Fluttertoast.showToast(msg: errorMessage!);
+        Fluttertoast.showToast(msg: errorMessage);
         print(error.code);
       }
     }
@@ -354,12 +354,12 @@ class _doctorRegistrationScreenState extends State<doctorRegistrationScreen> {
     // sedning these values
 
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-    User? doctors = _auth.currentUser;
+    User doctors = _auth.currentUser;
 
     DoctorModel doctorModel = DoctorModel();
 
     // writing all the values
-    doctorModel.email = doctors!.email;
+    doctorModel.email = doctors.email;
     doctorModel.uid = doctors.uid;
     doctorModel.firstName = firstNameEditingController.text;
     doctorModel.secondName = secondNameEditingController.text;

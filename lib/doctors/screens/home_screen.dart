@@ -6,14 +6,14 @@ import 'package:medskin/user/model/user_model.dart';
 import 'login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key key}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  User? user = FirebaseAuth.instance.currentUser;
+  User user = FirebaseAuth.instance.currentUser;
   UserModel loggedInUser = UserModel();
 
   @override
@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     FirebaseFirestore.instance
         .collection("users")
-        .doc(user!.uid)
+        .doc(user.uid)
         .get()
         .then((value) {
       this.loggedInUser = UserModel.fromMap(value.data());

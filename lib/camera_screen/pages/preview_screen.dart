@@ -9,9 +9,9 @@ import 'package:path/path.dart';
 
 class PreviewScreen extends StatefulWidget{
   final String imgPath;
-  File ? image;
+  File image;
 
-  PreviewScreen({required this.imgPath});
+  PreviewScreen({this.imgPath});
 
   @override
   _PreviewScreenState createState() => _PreviewScreenState();

@@ -10,7 +10,7 @@ import 'package:medskin/user/user_bottomnavBar.dart';
 import 'home_screen.dart';
 
 class doctorsLoginScreen extends StatefulWidget {
-  const doctorsLoginScreen({Key? key}) : super(key: key);
+  const doctorsLoginScreen({Key key}) : super(key: key);
 
   @override
   _doctorsLoginScreenState createState() => _doctorsLoginScreenState();
@@ -28,7 +28,7 @@ class _doctorsLoginScreenState extends State<doctorsLoginScreen> {
   final _auth = FirebaseAuth.instance;
 
   // string for displaying the error Message
-  String? errorMessage;
+  String errorMessage;
 
 
   // _googleSignUp() async {
@@ -65,7 +65,7 @@ class _doctorsLoginScreenState extends State<doctorsLoginScreen> {
         controller: emailController,
         keyboardType: TextInputType.emailAddress,
         validator: (value) {
-          if (value!.isEmpty) {
+          if (value.isEmpty) {
             return ("Please Enter Your Email");
           }
           // reg expression for email validation
@@ -76,7 +76,7 @@ class _doctorsLoginScreenState extends State<doctorsLoginScreen> {
           return null;
         },
         onSaved: (value) {
-          emailController.text = value!;
+          emailController.text = value;
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
@@ -95,7 +95,7 @@ class _doctorsLoginScreenState extends State<doctorsLoginScreen> {
         obscureText: true,
         validator: (value) {
           RegExp regex = new RegExp(r'^.{6,}$');
-          if (value!.isEmpty) {
+          if (value.isEmpty) {
             return ("Password is required for login");
           }
           if (!regex.hasMatch(value)) {
@@ -103,7 +103,7 @@ class _doctorsLoginScreenState extends State<doctorsLoginScreen> {
           }
         },
         onSaved: (value) {
-          passwordController.text = value!;
+          passwordController.text = value;
         },
         textInputAction: TextInputAction.done,
         decoration: InputDecoration(
@@ -218,7 +218,7 @@ class _doctorsLoginScreenState extends State<doctorsLoginScreen> {
         }
     );
 
-    if (_formKey.currentState!.validate()) {
+    if (_formKey.currentState.validate()) {
       try {
         await _auth
             .signInWithEmailAndPassword(email: email, password: password)
@@ -252,7 +252,7 @@ class _doctorsLoginScreenState extends State<doctorsLoginScreen> {
           default:
             errorMessage = "An undefined Error happened.";
         }
-        Fluttertoast.showToast(msg: errorMessage!);
+        Fluttertoast.showToast(msg: errorMessage);
         print(error.code);
       }
     }

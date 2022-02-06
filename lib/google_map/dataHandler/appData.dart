@@ -1,12 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:medskin/google_map/models/address.dart';
 
-class appData extends ChangeNotifier{
+class AppData extends ChangeNotifier{
 
-  Address ? userPickUpLocation;
+  Address PickUpLocation, DropOffLocation;
 
   void updatePickUpLocationAddress(Address pickUpAddress){
-    userPickUpLocation = pickUpAddress;
+    PickUpLocation = pickUpAddress;
+    notifyListeners();
+  }
+
+  void updateDropOffLocationAddress(Address dropOffAddress){
+    DropOffLocation = dropOffAddress;
     notifyListeners();
   }
 }

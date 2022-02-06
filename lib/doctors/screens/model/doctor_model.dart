@@ -1,8 +1,8 @@
 class DoctorModel {
-  String? uid;
-  String? email;
-  String? firstName;
-  String? secondName;
+  String uid;
+  String email;
+  String firstName;
+  String secondName;
 
   DoctorModel({this.uid, this.email, this.firstName, this.secondName});
 
