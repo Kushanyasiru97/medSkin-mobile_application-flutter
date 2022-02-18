@@ -4,6 +4,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:medskin/camera_screen/pages/preview_screen.dart';
+import 'package:medskin/screens/home.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -203,7 +204,7 @@ class _CameraScreenState extends State {
       Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => PreviewScreen(
+            builder: (context) =>  PreviewScreen(
                   imgPath: path,
                 )),
       );
@@ -218,4 +219,7 @@ class _CameraScreenState extends State {
     CameraDescription selectedCamera = cameras[selectedCameraIndex];
     _initCameraController(selectedCamera);
   }
+
 }
+
+

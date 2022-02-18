@@ -1,6 +1,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:medskin/Person/page/fade_animator.dart';
 import 'package:medskin/user/screens/login_screen.dart';
 
 import 'detail_page.dart';
@@ -280,35 +281,47 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    buildSingleItem(
-                      context: context,
-                      images: "images/wallpaper.jpg",
-                      title: "Rashes",
-                      subTitle: "Skin Rash",
-                      // price: 4.20,
-                      // rating: 4.5,
-                    ),
-                    buildSingleItem(
-                      context: context,
-                      images: "images/wallpaper.jpg",
-                      title: "Pimples",
-                      subTitle: "Face Pimples",
-                      // price: 3.14,
-                      // rating: 4.5,
-                    ),
-                    buildSingleItem(
-                      context: context,
-                      images: "images/wallpaper.jpg",
-                      title: "Pimples",
-                      subTitle: "Face pimples",
-                      // price: 3.14,
-                      // rating: 4.5,
-                    ),
+              SizedBox(height: 20.0,),
+              // SingleChildScrollView(
+              //   physics: BouncingScrollPhysics(),
+              //   scrollDirection: Axis.horizontal,
+              //   child: Row(
+              //     children: [
+                    FadeAnimation(1.8, Container(
+                      height: 200,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          makeVideo(image: 'images/profilePicture.jpg'),
+                          makeVideo(image: 'images/dis1.jpg'),
+                          makeVideo(image: 'images/dis3.jpg'),
+                        ],
+                      ),
+                    )),
+                    // buildSingleItem(
+                    //   context: context,
+                    //   images: "images/wallpaper.jpg",
+                    //   title: "Rashes",
+                    //   subTitle: "Skin Rash",
+                    //   // price: 4.20,
+                    //   // rating: 4.5,
+                    // ),
+                    // buildSingleItem(
+                    //   context: context,
+                    //   images: "images/wallpaper.jpg",
+                    //   title: "Pimples",
+                    //   subTitle: "Face Pimples",
+                    //   // price: 3.14,
+                    //   // rating: 4.5,
+                    // ),
+                    // buildSingleItem(
+                    //   context: context,
+                    //   images: "images/wallpaper.jpg",
+                    //   title: "Pimples",
+                    //   subTitle: "Face pimples",
+                    //   // price: 3.14,
+                    //   // rating: 4.5,
+                    // ),
                     // buildSingleItem(
                     //   images: "images/coffee4.jpeg",
                     //   title: "Cappuccino",
@@ -344,10 +357,10 @@ class HomePage extends StatelessWidget {
                 ),
               ),
 
-            ],
+            // ],
           ),
-        ),
-      ),
+        // ),
+      // ),
     );
   }
   // Future<void> logout(BuildContext context) async {
@@ -355,4 +368,35 @@ class HomePage extends StatelessWidget {
   //   Navigator.of(context).pushReplacement(
   //       MaterialPageRoute(builder: (context) => userLoginScreen()));
   // }
+
+}
+
+Widget makeVideo({image}) {
+  return AspectRatio(
+      aspectRatio: 1.5 / 1,
+      child: Container(
+        margin: EdgeInsets.only(right: 20),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            image: DecorationImage(
+              image: AssetImage(image),
+              fit: BoxFit.cover,
+            )
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.bottomRight,
+                  colors: [
+                    Colors.black.withOpacity(.9),
+                    Colors.black.withOpacity(.3),
+                  ]
+              )
+          ),
+          // child: Align(
+          //   child: Icon(Icons.history, color: Colors.white, size: 70,),
+          // ),
+        ),
+      )
+  );
 }

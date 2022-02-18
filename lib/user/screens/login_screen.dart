@@ -49,12 +49,12 @@ class _userLoginScreenState extends State<userLoginScreen> {
       );
 
       final User user = (await _auth.signInWithCredential(credential)).user;
-      // print("signed in " + user.displayName);
+      print("signed in " + user.displayName);
 
       return user;
     } catch (e) {
 
-      // print(e.message);
+      print(e.message);
     }
   }
 
@@ -165,8 +165,8 @@ class _userLoginScreenState extends State<userLoginScreen> {
                     MaterialButton(
                       padding: EdgeInsets.zero,
                       onPressed: () {
-                        // _googleSignUp().then((value)=> Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        //   builder: (context)=> userHomeScreen(),),),);
+                        _googleSignUp().then((value)=> Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context)=> userHomeScreen(),),),);
                       },
                       child: Image(
                         image: AssetImage('images/signin.png'),

@@ -56,7 +56,7 @@ class _userRegistrationScreenState extends State<userRegistrationScreen> {
       return user;
     } catch (e) {
 
-      // print(e.message);
+      print(e.message);
     }
   }
 
@@ -263,8 +263,8 @@ class _userRegistrationScreenState extends State<userRegistrationScreen> {
                     MaterialButton(
                       padding: EdgeInsets.zero,
                       onPressed: () {
-                        // _googleSignUp().then((value)=> Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        //   builder: (context)=> userHomeScreen(),),),);
+                        _googleSignUp().then((value)=> Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context)=> userHomeScreen(),),),);
                       },
                       child: Image(
                         image: AssetImage('images/signin.png'),

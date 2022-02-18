@@ -2,13 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:medskin/allwidgets/progressDialog.dart';
 import 'package:medskin/doctors/screens/login_screen.dart';
-import 'package:medskin/home/home_screen.dart';
-import 'package:medskin/user/screens/login_screen.dart';
 
-import 'home_screen.dart';
 import 'model/doctor_model.dart';
 
 
@@ -365,7 +361,7 @@ class _doctorRegistrationScreenState extends State<doctorRegistrationScreen> {
     doctorModel.secondName = secondNameEditingController.text;
 
     await firebaseFirestore
-        .collection("users")
+        .collection("doctors")
         .doc(doctors.uid)
         .set(doctorModel.toMap());
     Fluttertoast.showToast(msg: "Account created successfully :) ");

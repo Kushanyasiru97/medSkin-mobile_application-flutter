@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medskin/Person/page/profile_page.dart';
+import 'package:medskin/camera_screen/pages/camera_screen.dart';
+import 'package:medskin/chatScreen/mainScreens/fontEnd/mainScreens/chatMainScreen.dart';
 import 'package:medskin/google_map/screens/mainscreen.dart';
 import 'package:medskin/google_map/screens/mainscreen.dart';
 import 'package:medskin/screens/home.dart';
@@ -18,10 +21,10 @@ class _BottomPageState extends State<BottomPage> {
 
   static List<Widget> _widgetOption = <Widget>[
     HomePage(),
-    userLoginScreen(),
-    Home(),
+    chatMainScreen(),
+    CameraScreen(),
     googleMapMainScreen(),
-    userLoginScreen(),
+    userProfile(),
   ];
 
   void _onItemTapped(int index) {
