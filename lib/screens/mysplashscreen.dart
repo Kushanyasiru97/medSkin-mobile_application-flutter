@@ -1,32 +1,31 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:splashscreen/splashscreen.dart';
+import 'package:medskin/uh/bottom_page.dart';
 
-import 'home.dart';
-
-class MySplashScreen extends StatefulWidget {
-  const MySplashScreen({Key? key}) : super(key: key);
-
+class splashScreen extends StatefulWidget {
   @override
-  _MySplashScreenState createState() => _MySplashScreenState();
+  _splashScreenState createState() => _splashScreenState();
 }
-
-class _MySplashScreenState extends State<MySplashScreen> {
+class _splashScreenState extends State<splashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 2),
+            ()=>Navigator.pushReplacement(context,
+            MaterialPageRoute(builder:
+                (context) =>
+                    BottomPage()
+            )
+        )
+    );
+  }
   @override
   Widget build(BuildContext context) {
-    return SplashScreen(
-      seconds: 3,
-      navigateAfterSeconds: Home(),
-      title: Text(
-        'Cat and Dog Classifier',
-        style: TextStyle(
-            color: Color(0x00FFFF),
-            fontSize: 25.0,
-            fontWeight: FontWeight.bold),
-      ),
-      image: Image.asset('images/wallpaper.jpg'),
-      backgroundColor: Colors.blueAccent,
-      photoSize: 80.0,
-      loaderColor: Colors.white,
+    return Container(
+        color: Colors.white,
+        child:Image(
+          image: AssetImage("images/medSkin.png"),
+        )
     );
   }
 }
