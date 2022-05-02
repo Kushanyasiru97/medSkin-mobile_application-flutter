@@ -1,8 +1,10 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:medskin/camera_screen/pages/preview_screen.dart';
 import 'package:medskin/screens/home.dart';
 import 'package:path/path.dart';
@@ -18,6 +20,27 @@ class _CameraScreenState extends State {
   List cameras;
   int selectedCameraIndex;
   String imgPath;
+  File image;
+
+  final picker = ImagePicker();
+
+
+  pickGalleryImage() async {
+    var img = await picker.pickImage(source: ImageSource.gallery);
+    if (img == null) return null;
+
+    setState(() {
+      image = File(img.path);
+    });
+    
+    // detectImage(image);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
 
   @override
   void initState() {
@@ -91,6 +114,7 @@ class _CameraScreenState extends State {
                     children: <Widget>[
                       _cameraToggleRowWidget(),
                       _cameraControlWidget(context),
+                      _galleryWidget(),
                       Spacer()
                     ],
                   ),
@@ -140,7 +164,7 @@ class _CameraScreenState extends State {
               onPressed: () {
                 _onCapturePressed(context);
               },
-            )
+            ),
           ],
         ),
       ),
@@ -201,6 +225,13 @@ class _CameraScreenState extends State {
           join((await getTemporaryDirectory()).path, '${DateTime.now()}.png');
       await controller.takePicture(path);
 
+
+     // img1= File(widget.path)
+
+      // Navigator.of(context).push(MaterialPageRoute(
+      //   builder: (context) => Home(imgPath: path,),
+      // ));
+
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -218,6 +249,41 @@ class _CameraScreenState extends State {
         selectedCameraIndex < cameras.length - 1 ? selectedCameraIndex + 1 : 0;
     CameraDescription selectedCamera = cameras[selectedCameraIndex];
     _initCameraController(selectedCamera);
+  }
+
+  Widget _galleryWidget() {
+      return GestureDetector(
+        onTap: () {
+          pickGalleryImage();
+        },
+        child: Container(
+          child: Icon(
+            Icons.picture_in_picture,
+            color: Colors.white,
+            // style: TextStyle(color: Colors.white, fontSize: 16.0),
+          ),
+          // width: MediaQuery.of(context).size.width,
+          alignment: Alignment.center,
+          padding: EdgeInsets.symmetric(
+              horizontal: 25.0, vertical: 18.0),
+          decoration: BoxDecoration(
+              color: Colors.black,
+              borderRadius: BorderRadius.circular(6.0)),
+        ),
+      );
+      //   Container(
+      //   child: Text(
+      //     'gallery',
+      //     style: TextStyle(color: Colors.white, fontSize: 16.0),
+      //   ),
+      //   // width: MediaQuery.of().size.width,
+      //   alignment: Alignment.center,
+      //   padding: EdgeInsets.symmetric(
+      //       horizontal: 25.0, vertical: 18.0),
+      //   decoration: BoxDecoration(
+      //       color: Colors.black,
+      //       borderRadius: BorderRadius.circular(6.0)),
+      // );
   }
 
 }

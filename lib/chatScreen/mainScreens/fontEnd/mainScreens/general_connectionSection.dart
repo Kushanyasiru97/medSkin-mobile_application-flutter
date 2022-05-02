@@ -48,7 +48,7 @@ class _generalMessageSectionState extends State<generalMessageSection> {
                       )),
                   child: GestureDetector(
                     onTap: () async {
-                      //_imageOrVideoSend(imageSource: ImageSource.camera);
+                      // _imageOrVideoSend(imageSource: ImageSource.camera);
                     },
                     onLongPress: () async {
                       //_imageOrVideoSend(imageSource: ImageSource.gallery);

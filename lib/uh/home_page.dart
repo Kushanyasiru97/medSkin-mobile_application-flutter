@@ -24,12 +24,12 @@ class HomePage extends StatelessWidget {
           ),
           isSelected
               ? Text(
-                  "",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xffd17842),
-                  ),
-                )
+            "",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Color(0xffd17842),
+            ),
+          )
               : Text(""),
         ],
       ),
@@ -287,87 +287,87 @@ class HomePage extends StatelessWidget {
               //   scrollDirection: Axis.horizontal,
               //   child: Row(
               //     children: [
-                    FadeAnimation(1.8, Container(
-                      height: 200,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          makeVideo(image: 'images/profilePicture.jpg'),
-                          makeVideo(image: 'images/dis1.jpg'),
-                          makeVideo(image: 'images/dis3.jpg'),
-                        ],
-                      ),
-                    )),
-                    // buildSingleItem(
-                    //   context: context,
-                    //   images: "images/wallpaper.jpg",
-                    //   title: "Rashes",
-                    //   subTitle: "Skin Rash",
-                    //   // price: 4.20,
-                    //   // rating: 4.5,
-                    // ),
-                    // buildSingleItem(
-                    //   context: context,
-                    //   images: "images/wallpaper.jpg",
-                    //   title: "Pimples",
-                    //   subTitle: "Face Pimples",
-                    //   // price: 3.14,
-                    //   // rating: 4.5,
-                    // ),
-                    // buildSingleItem(
-                    //   context: context,
-                    //   images: "images/wallpaper.jpg",
-                    //   title: "Pimples",
-                    //   subTitle: "Face pimples",
-                    //   // price: 3.14,
-                    //   // rating: 4.5,
-                    // ),
-                    // buildSingleItem(
-                    //   images: "images/coffee4.jpeg",
-                    //   title: "Cappuccino",
-                    //   subTitle: "With Chocolate",
-                    //   price: 3.14,
-                    //   rating: 4.5,
-                    // ),
-                    // buildSingleItem(
-                    //   context: context,
-                    //   images: "images/coffee5.jpeg",
-                    //   title: "Cappuccino",
-                    //   subTitle: "With Chocolate",
-                    //   price: 3.14,
-                    //   rating: 4.5,
-                    // ),
-                    // buildSingleItem(
-                    //   context: context,
-                    //   images: "images/coffee6.jpeg",
-                    //   title: "Cappuccino",
-                    //   subTitle: "With Chocolate",
-                    //   price: 3.14,
-                    //   rating: 4.5,
-                    // ),
-                    // buildSingleItem(
-                    //   context: context,
-                    //   images: "images/coffee7.jpeg",
-                    //   title: "Cappuccino",
-                    //   subTitle: "With Chocolate",
-                    //   price: 3.14,
-                    //   rating: 4.5,
-                    // ),
+              FadeAnimation(1.8, Container(
+                height: 200,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    makeVideo(image: 'images/profilePicture.jpg'),
+                    makeVideo(image: 'images/dis1.jpg'),
+                    makeVideo(image: 'images/dis3.jpg'),
                   ],
                 ),
-              ),
-
-            // ],
+              )),
+              // buildSingleItem(
+              //   context: context,
+              //   images: "images/wallpaper.jpg",
+              //   title: "Rashes",
+              //   subTitle: "Skin Rash",
+              //   // price: 4.20,
+              //   // rating: 4.5,
+              // ),
+              // buildSingleItem(
+              //   context: context,
+              //   images: "images/wallpaper.jpg",
+              //   title: "Pimples",
+              //   subTitle: "Face Pimples",
+              //   // price: 3.14,
+              //   // rating: 4.5,
+              // ),
+              // buildSingleItem(
+              //   context: context,
+              //   images: "images/wallpaper.jpg",
+              //   title: "Pimples",
+              //   subTitle: "Face pimples",
+              //   // price: 3.14,
+              //   // rating: 4.5,
+              // ),
+              // buildSingleItem(
+              //   images: "images/coffee4.jpeg",
+              //   title: "Cappuccino",
+              //   subTitle: "With Chocolate",
+              //   price: 3.14,
+              //   rating: 4.5,
+              // ),
+              // buildSingleItem(
+              //   context: context,
+              //   images: "images/coffee5.jpeg",
+              //   title: "Cappuccino",
+              //   subTitle: "With Chocolate",
+              //   price: 3.14,
+              //   rating: 4.5,
+              // ),
+              // buildSingleItem(
+              //   context: context,
+              //   images: "images/coffee6.jpeg",
+              //   title: "Cappuccino",
+              //   subTitle: "With Chocolate",
+              //   price: 3.14,
+              //   rating: 4.5,
+              // ),
+              // buildSingleItem(
+              //   context: context,
+              //   images: "images/coffee7.jpeg",
+              //   title: "Cappuccino",
+              //   subTitle: "With Chocolate",
+              //   price: 3.14,
+              //   rating: 4.5,
+              // ),
+            ],
           ),
-        // ),
+        ),
+
+        // ],
+      ),
+      // ),
       // ),
     );
   }
-  // Future<void> logout(BuildContext context) async {
-  //   await FirebaseAuth.instance.signOut();
-  //   Navigator.of(context).pushReplacement(
-  //       MaterialPageRoute(builder: (context) => userLoginScreen()));
-  // }
+// Future<void> logout(BuildContext context) async {
+//   await FirebaseAuth.instance.signOut();
+//   Navigator.of(context).pushReplacement(
+//       MaterialPageRoute(builder: (context) => userLoginScreen()));
+// }
 
 }
 

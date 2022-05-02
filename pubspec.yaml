@@ -60,7 +60,7 @@ dependencies:
 #  flutter_svg: ^0.22.0
   fl_chart: ^0.36.1
   data_table_2: ^2.0.3
-  firebase_storage: ^10.2.4
+  firebase_storage: ^10.0.3
 
 
   curved_navigation_bar: ^1.0.1
@@ -95,6 +95,27 @@ dependencies:
   flutter_icons: ^1.1.0
   sqflite: ^2.0.2
   firebase_messaging: ^10.0.9
+  open_file: ^3.2.1
+  photo_view: ^0.13.0
+  video_thumbnail: ^0.4.3
+  emoji_picker_flutter: ^1.1.2
+  permission_handler: ^7.0.0
+  file_picker: ^4.4.0
+  pdf_viewer_plugin: ^2.0.1
+  just_audio: ^0.9.20
+  percent_indicator: ^4.0.0
+  record: ^3.0.2
+  flutter_local_notifications: ^8.2.0
+  shared_preferences: ^2.0.13
+  random_string: ^2.3.1
+  animated_splash_screen: ^1.2.0
+
+#  uuid: ^2.1.0
+#  shared_preferences:
+#  random_string:
+
+
+
 
 
 

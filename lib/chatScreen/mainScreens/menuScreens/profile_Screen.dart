@@ -15,7 +15,7 @@ import 'package:loading_overlay/loading_overlay.dart';
 // import 'package:generation/BackendAndDatabaseManager/global_controller/this_account_important_data.dart';
 // import 'package:generation/BackendAndDatabaseManager/firebase_services/firestore_management.dart';
 // import 'package:generation/BackendAndDatabaseManager/general_services/toast_message_manage.dart';
-// import 'package:generation/FrontEnd/Preview/images_preview_screen.dart';
+// import 'package:generation/FrontEnd/chatScreen.mainScreens.Preview/images_preview_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override

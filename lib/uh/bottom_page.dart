@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:medskin/Person/page/profile_page.dart';
+import 'package:medskin/buttons.dart';
 import 'package:medskin/camera_screen/pages/camera_screen.dart';
-import 'package:medskin/chatScreen/mainScreens/fontEnd/mainScreens/chatMainScreen.dart';
-import 'package:medskin/google_map/screens/mainscreen.dart';
-import 'package:medskin/google_map/screens/mainscreen.dart';
-import 'package:medskin/screens/home.dart';
-import 'package:medskin/user/screens/login_screen.dart';
+import 'package:medskin/new/FrontEnd/MainScreens/main_screen.dart';
+import 'package:medskin/try.dart';
+
 import 'home_page.dart';
 
 class BottomPage extends StatefulWidget {
@@ -21,9 +20,9 @@ class _BottomPageState extends State<BottomPage> {
 
   static List<Widget> _widgetOption = <Widget>[
     HomePage(),
-    chatMainScreen(),
+    MainScreen(),
     CameraScreen(),
-    googleMapMainScreen(),
+    mapApp(),
     userProfile(),
   ];
 

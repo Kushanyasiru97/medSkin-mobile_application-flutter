@@ -17,12 +17,17 @@ class PreviewScreen extends StatefulWidget{
   PreviewScreen({this.imgPath});
 
   @override
-  _PreviewScreenState createState() => _PreviewScreenState();
+  _PreviewScreenState createState() => _PreviewScreenState(imgPath);
 
 }
 class _PreviewScreenState extends State<PreviewScreen>{
+
+  String imgPath;
+  File image2;
+  _PreviewScreenState(this.imgPath);
   @override
   Widget build(BuildContext context) {
+    print(imgPath);
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
@@ -31,6 +36,7 @@ class _PreviewScreenState extends State<PreviewScreen>{
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            Text(imgPath),
             Expanded(
               flex: 2,
               child: Image.file(File(widget.imgPath),fit: BoxFit.cover,),
@@ -45,10 +51,28 @@ class _PreviewScreenState extends State<PreviewScreen>{
                   child: IconButton(
                     icon: Icon(Icons.upload_file,color: Colors.white,),
                     onPressed: (){
+
+
+                      image2=File(widget.imgPath);
+
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => Home(
+                             image2:image2,
                             // imgPath:img,
                           )));
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
